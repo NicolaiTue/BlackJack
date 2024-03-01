@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Fag\\Progrmering\\Eksamens projekt\\BlackJack1\\BlackJack1\\BlackJack1.csproj",
+      "projectUniqueName": "C:\\Users\\nicol\\OneDrive\\Fag\\Progrmering\\Eksamens projekt\\BlackJack\\BlackJack1\\BlackJack1.csproj",
       "projectName": "BlackJack1",
-      "projectPath": "C:\\Users\\nicol\\OneDrive\\Fag\\Progrmering\\Eksamens projekt\\BlackJack1\\BlackJack1\\BlackJack1.csproj",
+      "projectPath": "C:\\Users\\nicol\\OneDrive\\Fag\\Progrmering\\Eksamens projekt\\BlackJack\\BlackJack1\\BlackJack1.csproj",
       "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nicol\\OneDrive\\Fag\\Progrmering\\Eksamens projekt\\BlackJack1\\BlackJack1\\obj\\",
+      "outputPath": "C:\\Users\\nicol\\OneDrive\\Fag\\Progrmering\\Eksamens projekt\\BlackJack\\BlackJack1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
