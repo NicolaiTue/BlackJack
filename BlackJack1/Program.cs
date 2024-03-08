@@ -8,9 +8,9 @@ namespace BlackJack1
         public string Kulør { get; set; }
         public string Rang { get; set; }
 
-        public Kort(string kolør, string rang)
+        public Kort(string kulør, string rang)
         {
-            Kulør = kolør;
+            Kulør = kulør;
             Rang = rang;
         }
 
