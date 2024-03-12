@@ -54,7 +54,7 @@ namespace BlackJack2
             ShuffleDæk();
         }
 
-        public int BergenVærdi(List<Kort> spiller)
+        public int BeregnVærdi(List<Kort> spiller)
         {
 
             // her skal kortene på hånden udregnes husk Es værdi
