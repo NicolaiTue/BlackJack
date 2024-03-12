@@ -1,0 +1,7 @@
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/bin/Debug/BlackJack2.exe.config
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/bin/Debug/BlackJack2.exe
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/bin/Debug/BlackJack2.pdb
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/obj/Debug/BlackJack2.csproj.AssemblyReference.cache
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/obj/Debug/BlackJack2.csproj.CoreCompileInputs.cache
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/obj/Debug/BlackJack2.exe
+/Users/MDalgaard/Documents/GitHub/BlackJack/BlackJack2/BlackJack2/obj/Debug/BlackJack2.pdb
