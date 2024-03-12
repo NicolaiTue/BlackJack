@@ -8,6 +8,7 @@ namespace BlackJack2
 {
     class Kort
     {
+        //hejhej
         public string Kulør { get; set; }
         public string Rang { get; set; }
         public int Points { get; set; }
