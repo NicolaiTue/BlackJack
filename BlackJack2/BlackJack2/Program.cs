@@ -66,8 +66,9 @@ namespace BlackJack2
             return 0;
         }
 
-        
 
+
+        // funktion der blander kortene, ved at tage et kort fra dækket og ligge det et andet sted i bunken. det gør den 100 gange
         public void ShuffleDæk()
         {
             Random rand = new Random();
