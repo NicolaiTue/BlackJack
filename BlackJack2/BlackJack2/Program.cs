@@ -29,6 +29,7 @@ namespace BlackJack2
     class BlackJackbord
     {
         public List<Kort> dæk = new List<Kort>();
+        
 
         List<Kort> Dealer = new List<Kort>();
 
@@ -54,6 +55,9 @@ namespace BlackJack2
             ShuffleDæk();
         }
 
+
+      
+
         public int BeregnVærdi(List<Kort> spiller)
         {
 
@@ -62,11 +66,21 @@ namespace BlackJack2
             return 0;
         }
 
+        
+
         public void ShuffleDæk()
         {
-            // Her skal dækket blandes
-        }
+            Random rand = new Random();
 
+            for(int i = 0; i < 100; i++)
+            {
+                int s = rand.Next(52);
+                Kort k = dæk[s];
+                dæk.RemoveAt(s);
+                dæk.Add(k);
+            }
+        }
+        
         public void UddelStartHånd()
         {
             // den skal  give kort til dealer, spiller og vise dealerens første kort.
