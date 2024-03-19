@@ -26,18 +26,17 @@ namespace BlackJack2
         }
     }
 
+
     class BlackJackbord
     {
         public List<Kort> dæk = new List<Kort>();
-        
 
-        List<Kort> Dealer = new List<Kort>();
+        public List<Kort> Dealer = new List<Kort>();
 
         public List<Kort> hånd = new List<Kort>();
 
         public BlackJackbord(int antalDæk)
         {
-
             // Tilføj nummererede kort (1-10) for hver kulør
             foreach (var kulør in new[] { "Hjerter", "Spar", "Ruder", "Klør" })
             {
@@ -52,21 +51,39 @@ namespace BlackJack2
                 dæk.Add(new Billedkort(kulør, "Konge"));
                 dæk.Add(new Es(kulør));
             }
+            // blander kortene
             ShuffleDæk();
         }
 
-
-      
-
         public int BeregnVærdi(List<Kort> spiller)
         {
+            int sum = 0;
+            int antalEs = 0;
 
-            // her skal kortene på hånden udregnes husk Es værdi
+            // Beregner summen af kortværdierne
+            foreach (var kort in spiller)
+            {
+                // Hvis kortet er et Es, tæl antallet af Es'er og fortsæt til næste trin
+                if (kort.Rang == "Es")
+                {
+                    antalEs++;
+                    continue;
+                }
+                // Hvis kortet er et nummerkort eller et billedkort, tilføj dens værdi til summen
+                sum += kort.Points;
+            }
 
-            return 0;
+            // Behandling af Es'erne
+            for (int i = 0; i < antalEs; i++)
+            {
+                // Hvis summen med Es'et talt som 11 ikke overstiger 21, så tilføj 10 til summen (da Es normalt tælles som 1)
+                if (sum + 10 <= 21)
+                {
+                    sum += 10;
+                }
+            }
+            return sum;
         }
-
-
 
         // funktion der blander kortene, ved at tage et kort fra dækket og ligge det et andet sted i bunken. det gør den 100 gange
         public void ShuffleDæk()
@@ -98,10 +115,11 @@ namespace BlackJack2
             //print info
         }
 
-
-
+        public void Hit()
+        {
+            // Den skal gøre så spiller kan kører den hver gang de vil have et ekstra kort
+        }
     }
-
 
     // Klasse for et nummereret kort (1-10)
     class Kortnummer : Kort
@@ -134,13 +152,25 @@ namespace BlackJack2
 
             BlackJackbord bord = new BlackJackbord(2);
 
+            // ud deler start hånd til spiller og dealer
+            bord.UddelStartHånd();
 
+            // Beregn værdien af spillerens hånd
+            int spillerVærdi = bord.BeregnVærdi(bord.hånd);
 
-            Console.WriteLine("Sæt af spillekort:");
-            foreach (var Kort in bord.dæk)
+            // Udskriver spillerens hånd og  håndens værdi
+            Console.WriteLine("Spillerens hånd:");
+            foreach (var kort in bord.hånd)
             {
-                Kort.VisKortSæt();
+                kort.VisKortSæt();
             }
+
+            Console.WriteLine($"Samlet værdi af spillerens hånd: {spillerVærdi}");
+
+            // Beregn værdien af dealerens hånd
+            int dealerVærdi = bord.BeregnVærdi(bord.Dealer);
+
+            
         }
     }
 }
