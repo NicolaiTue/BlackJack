@@ -17,7 +17,7 @@ namespace BlackJack2
         {
             Kulør = kulør;
             Rang = rang;
-            Points = Points;
+            Points = points;
         }
 
         public virtual void VisKortSæt()
@@ -67,7 +67,6 @@ namespace BlackJack2
                 if (kort.Rang == "Es")
                 {
                     antalEs++;
-                    continue;
                 }
                 // Hvis kortet er et nummerkort eller et billedkort, tilføj dens værdi til summen
                 sum += kort.Points;
