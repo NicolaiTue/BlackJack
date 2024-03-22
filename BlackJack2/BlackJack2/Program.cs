@@ -178,23 +178,29 @@ namespace BlackJack2
             // Beregn værdien af dealerens hånd
             int dealerVærdi = bord.BeregnVærdi(bord.Dealer);
 
-            Console.WriteLine("tast h for at hit, s for at stå");
-            Console.ReadLine();
-            response = Console.ReadLine();
+            
 
             for(int spillerVærdi > 21)
-            if (response == "H" || response == "h")
             {
-                bord.Hit();
-            }
-            else if(response == "S" || response == "s")
-            {
+                Console.WriteLine("tast h for at hit, s for at stå");
+                response = Console.ReadLine();
+
+                if (response == "H" || response == "h")
+                {
+                    bord.Hit();
+                }
+                else if (response == "S" || response == "s")
+                {
                     break;
-            }
+                }
                 else
                 {
                     Console.WriteLine("du tastede forkert, prøv igen");
                 }
+
+
+            }
+            
 
 
 
