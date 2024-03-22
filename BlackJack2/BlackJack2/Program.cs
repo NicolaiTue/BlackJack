@@ -114,10 +114,17 @@ namespace BlackJack2
             //print info
         }
 
+       
         public void Hit()
         {
-            // Den skal gøre så spiller kan kører den hver gang de vil have et ekstra kort
+            for (int i = 0; i < 1; i++)//skal ændres i tilfælde af flere hænder spillere
+            {
+                hånd.Add(dæk[0]);
+                dæk.RemoveAt(0);
+            }
         }
+
+        
     }
 
     // Klasse for et nummereret kort (1-10)
@@ -148,6 +155,8 @@ namespace BlackJack2
     {
         static void Main()
         {
+            string response;
+            
 
             BlackJackbord bord = new BlackJackbord(2);
 
@@ -169,7 +178,26 @@ namespace BlackJack2
             // Beregn værdien af dealerens hånd
             int dealerVærdi = bord.BeregnVærdi(bord.Dealer);
 
-            
+            Console.WriteLine("tast h for at hit, s for at stå");
+            Console.ReadLine();
+            response = Console.ReadLine();
+
+            for(int spillerVærdi > 21)
+            if (response == "H" || response == "h")
+            {
+                bord.Hit();
+            }
+            else if(response == "S" || response == "s")
+            {
+                    break;
+            }
+                else
+                {
+                    Console.WriteLine("du tastede forkert, prøv igen");
+                }
+
+
+
         }
     }
 }
