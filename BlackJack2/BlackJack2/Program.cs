@@ -228,13 +228,24 @@ namespace BlackJack2
                 }
             }
 
-            while (dealerVærdi < 17) // Så længe dealer værdi er 16 eller under 
+            Console.WriteLine();
+
+            if (dealerVærdi > 17 && spillerVærdi < 22)
+            {
+                Console.WriteLine("Dealerens hånd:");
+                foreach (var kort in bord.Dealer)
+                {
+                    kort.VisKortSæt();
+                }
+                dealerVærdi = bord.BeregnVærdi(bord.Dealer);
+                Console.WriteLine($"Samlet værdi af Dealerens hånd: {dealerVærdi}");
+            }
+
+            while (dealerVærdi < 17 && spillerVærdi < 22) // Så længe dealer værdi er 16 eller under og spilleren ikke er bust
             {
                 bord.HitDealer();
 
                 //Opdater dealerens værdi efter et nyt kort er trukket
-                
-
                 Console.WriteLine("Dealerens hånd:");
                 foreach (var kort in bord.Dealer)
                 {
@@ -244,31 +255,30 @@ namespace BlackJack2
                 dealerVærdi = bord.BeregnVærdi(bord.Dealer);
                 Console.WriteLine($"Samlet værdi af Dealerens hånd: {dealerVærdi}");
             }
-
+                       
+            dealerVærdi = bord.BeregnVærdi(bord.Dealer);
+            Console.WriteLine($"Samlet værdi af Dealerens hånd: {dealerVærdi}");
 
             if (spillerVærdi >= 22)
             {
                 Console.WriteLine("Spiller har bust");
             }
-            if (dealerVærdi >= 22)
+            else if (dealerVærdi >= 22)
             {
                 Console.WriteLine("Dealer har bust spiller har vundet");
             }
-            if (dealerVærdi < spillerVærdi)
+            else if (dealerVærdi < spillerVærdi)
             {
                 Console.WriteLine("Spiller har vundet");
             }
-            if (dealerVærdi > spillerVærdi)
+            else if (dealerVærdi > spillerVærdi)
             {
                 Console.WriteLine("Spiller har Tabt");
             }
-            if (spillerVærdi == dealerVærdi)
+            else if (spillerVærdi == dealerVærdi)
             {
                 Console.WriteLine("Spillet er draw");
-            }
-            
-
-
+            }           
         }
     }
 }
