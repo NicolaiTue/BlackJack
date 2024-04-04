@@ -124,7 +124,15 @@ namespace BlackJack2
             }
         }
 
-        
+        public void HitDealer()
+        {
+            for (int i = 0; i < 1; i++)//skal ændres i tilfælde af flere hænder spillere
+            {
+                Dealer.Add(dæk[0]);
+                dæk.RemoveAt(0);
+            }
+        }
+
     }
 
     // Klasse for et nummereret kort (1-10)
@@ -156,7 +164,10 @@ namespace BlackJack2
         static void Main()
         {
             string response;
-            
+
+            int spillerVærdi; // Deklareret spillerVærdi udenfor for-loopet
+            int dealerVærdi;// Deklareret dealerVærdi udenfor for-loopet
+
 
             BlackJackbord bord = new BlackJackbord(2);
 
@@ -164,7 +175,7 @@ namespace BlackJack2
             bord.UddelStartHånd();
 
             // Beregn værdien af spillerens hånd
-            int spillerVærdi = bord.BeregnVærdi(bord.hånd);
+            spillerVærdi = bord.BeregnVærdi(bord.hånd);
 
             // Udskriver spillerens hånd og  håndens værdi
             Console.WriteLine("Spillerens hånd:");
@@ -175,19 +186,37 @@ namespace BlackJack2
 
             Console.WriteLine($"Samlet værdi af spillerens hånd: {spillerVærdi}");
 
+            // her skal der vises Dealerens ene kort
+            Console.WriteLine();
+            Console.Write("Dealerens synlige hånd:");
+            bord.Dealer[0].VisKortSæt();
+            Console.WriteLine();
+
+
+
             // Beregn værdien af dealerens hånd
-            int dealerVærdi = bord.BeregnVærdi(bord.Dealer);
+            dealerVærdi = bord.BeregnVærdi(bord.Dealer);
 
-            
 
-            for(int spillerVærdi > 21)
+            while (spillerVærdi < 21) // Så længe spillerens værdi er under 21  
             {
                 Console.WriteLine("tast h for at hit, s for at stå");
                 response = Console.ReadLine();
 
                 if (response == "H" || response == "h")
                 {
-                    bord.Hit();
+
+                    bord.Hit(); 
+
+                    spillerVærdi = bord.BeregnVærdi(bord.hånd); // Opdater spillerens værdi efter et nyt kort er trukket
+
+                    Console.WriteLine("Spillerens hånd:");
+                    foreach (var kort in bord.hånd)
+                    {
+                        kort.VisKortSæt();
+                    }
+
+                    Console.WriteLine($"Samlet værdi af spillerens hånd: {spillerVærdi}");
                 }
                 else if (response == "S" || response == "s")
                 {
@@ -197,11 +226,47 @@ namespace BlackJack2
                 {
                     Console.WriteLine("du tastede forkert, prøv igen");
                 }
+            }
+
+            while (dealerVærdi < 17) // Så længe dealer værdi er 16 eller under 
+            {
+                bord.HitDealer();
+
+                //Opdater dealerens værdi efter et nyt kort er trukket
+                
+
+                Console.WriteLine("Dealerens hånd:");
+                foreach (var kort in bord.Dealer)
+                {
+                    kort.VisKortSæt();
+                }
+
+                dealerVærdi = bord.BeregnVærdi(bord.Dealer);
+                Console.WriteLine($"Samlet værdi af Dealerens hånd: {dealerVærdi}");
+            }
 
 
+            if (spillerVærdi >= 22)
+            {
+                Console.WriteLine("Spiller har bust");
+            }
+            if (dealerVærdi >= 22)
+            {
+                Console.WriteLine("Dealer har bust spiller har vundet");
+            }
+            if (dealerVærdi < spillerVærdi)
+            {
+                Console.WriteLine("Spiller har vundet");
+            }
+            if (dealerVærdi > spillerVærdi)
+            {
+                Console.WriteLine("Spiller har Tabt");
+            }
+            if (spillerVærdi == dealerVærdi)
+            {
+                Console.WriteLine("Spillet er draw");
             }
             
-
 
 
         }
