@@ -198,7 +198,7 @@ namespace BlackJack2
             dealerVærdi = bord.BeregnVærdi(bord.Dealer);
 
 
-            while (spillerVærdi < 21) // Så længe spillerens værdi er under 21  
+            while (spillerVærdi < 21) // Så længe spillerens værdi er under 21 skal spilleren kunne hit
             {
                 Console.WriteLine("tast h for at hit, s for at stå");
                 response = Console.ReadLine();
@@ -230,7 +230,8 @@ namespace BlackJack2
 
             Console.WriteLine();
 
-            if (dealerVærdi > 17 && spillerVærdi < 22)
+            // så længe dealeren har under 17 og spiller ikke har busted skal dealer tage et nyt kort.
+            if (dealerVærdi > 17 && spillerVærdi < 22) 
             {
                 Console.WriteLine("Dealerens hånd:");
                 foreach (var kort in bord.Dealer)
@@ -257,7 +258,7 @@ namespace BlackJack2
             }
                        
             dealerVærdi = bord.BeregnVærdi(bord.Dealer);
-            Console.WriteLine($"Samlet værdi af Dealerens hånd: {dealerVærdi}");
+            Console.WriteLine($"Endelige værdi af Dealerens hånd: {dealerVærdi}");
 
             if (spillerVærdi >= 22)
             {
