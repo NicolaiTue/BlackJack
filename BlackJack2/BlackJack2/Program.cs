@@ -35,7 +35,7 @@ namespace BlackJack2
 
         public List<Kort> hånd = new List<Kort>();
 
-        public BlackJackbord(int antalDæk)
+        public BlackJackbord(int antalDæk)// antalDæk gør ikke noget, men kan give mulighed for viderudvikling
         {
             // Tilføj nummererede kort (1-10) for hver kulør
             foreach (var kulør in new[] { "Hjerter", "Spar", "Ruder", "Klør" })
@@ -97,7 +97,22 @@ namespace BlackJack2
                 dæk.Add(k);
             }
         }
-        
+
+        /* en bedre måde at blande kortsætet på
+        public void shuffleDeck()
+        {
+            Random rand = new Random();
+
+            for (int i = dæk.size() - 1; i > 0; i--)
+            {
+                int j = rand.nextInt(i + 1);
+                Kort temp = dæk.get(i);
+                dæk.set(i, dæk.get(j));
+                dæk.set(j, temp);
+            }
+        }
+        */
+
         public void UddelStartHånd()
         {
             // den skal  give kort til dealer, spiller og vise dealerens første kort.
@@ -169,7 +184,7 @@ namespace BlackJack2
             int dealerVærdi;// Deklareret dealerVærdi udenfor for-loopet
 
 
-            BlackJackbord bord = new BlackJackbord(2);
+            BlackJackbord bord = new BlackJackbord(2);// gør mulihed for videreudvikling
 
             // ud deler start hånd til spiller og dealer
             bord.UddelStartHånd();
