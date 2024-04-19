@@ -40,7 +40,7 @@ namespace BlackJack2
             // Tilføj nummererede kort (1-10) for hver kulør
             foreach (var kulør in new[] { "Hjerter", "Spar", "Ruder", "Klør" })
             {
-                for (int i = 1; i <= 10; i++)
+                for (int i = 2; i <= 10; i++)
                 {
                     dæk.Add(new Kortnummer(kulør, i));
                 }
